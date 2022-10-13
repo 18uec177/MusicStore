@@ -1,0 +1,33 @@
+﻿@*@model IEnumerable<MusicStore.Data.Genre>
+@{
+    ViewData["Title"] = "GetDetailsByGenre";
+}
+
+<h1>@Model.GenreId Albums</h1>
+
+<div class="container">
+
+    <div class="row">
+
+        @foreach (var Album in Model)
+        {
+            <div class="col-sm-4 ">
+                <div class="card" style="width: 18rem;">
+                    <img src="~/images/grey background.jpg" class="card-img-top" alt="...">
+
+                    <div class="card-body">
+                        <h5 class="card-title">@Album.Title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <div>
+                            <button type="button" class="btn btn-outline-secondary"><a asp-area="" asp-controller="Book" asp-action="GetBooks" asp-route-id="book.id">View details</a></button>
+                        </div>
+                        <small class="text-muted"> by @Album.Artist</small>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>*@
+
+

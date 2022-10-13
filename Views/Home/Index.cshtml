@@ -1,0 +1,59 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>  @ViewData["Title"] = "Home Page";</title>
+
+
+    @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/bootswatchTheme.css" />
+</head>
+<body>
+
+
+    <div class="text-center">
+
+
+
+        <div class="flex-column">
+            <img src="~/images/music_landing.jpg" class="img-fluid" />
+
+            <h1 class="display-4">Fresh off the grill</h1>
+            @*<p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building
+                Web apps with ASP.NET Core</a>.</p>*@
+
+            @model IEnumerable<AlbumModel>
+
+            <div class="container ">
+                <h3>All the albums</h3>
+                <a asp-controller="storemanager" asp-action="index">Click to see all</a>
+                <div class="row">
+
+                    @foreach (var album in Model)
+                    {
+                        <div class="col-md-4  ">
+                            <partial name="_albumThumbnail" model="@album" />
+
+                        </div>
+                    }
+
+
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    @*<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>*@
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</body>
+</html>

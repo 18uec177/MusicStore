@@ -1,0 +1,49 @@
+﻿@model MusicStore.Models.SignInModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h1>Login</h1>
+
+<h4>SignInModel</h4>
+<hr />
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Password" class="control-label"></label>
+                    <input asp-for="Password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="RememberMe" /> @Html.DisplayNameFor(model => model.RememberMe)
+                    </label>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+        <div class="col-md-8">
+            <img class="img-fluid" src="~/images/dancing_girl.jpg" width="75" />
+        </div>
+    
+    </div>
+</div>
+
+<div>
+    <p>Click <a asp-action="Signup" asp-controller="Account">here</a>to Signup</p>
+    @*<p><a asp-action="Index">Back to List</a></p>*@
+</div>
+
