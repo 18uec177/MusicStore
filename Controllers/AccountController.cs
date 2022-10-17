@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MusicStore.Data;
 using MusicStore.Models;
@@ -17,12 +18,16 @@ namespace MusicStore.Controllers
         private readonly MusicStoreContext _db;
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
-        public AccountController(IAccountRepository accountRepository)
+        private readonly RoleManager<IdentityRole> _roleManager;
+        public AccountController(IAccountRepository accountRepository, RoleManager<IdentityRole> roleManager)
         {
             _accountRepository = accountRepository;
-           
-            
+            _roleManager = roleManager;
+
+
+
         }
+       
         public IActionResult Index()
         {
             return View();

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -13,14 +14,17 @@ namespace MusicStore.Controllers
     public class StoreManagerController : Controller
     {
         private readonly MusicStoreContext _context;
+        private readonly RoleManager<IdentityRole> _roleManager;
 
-        public StoreManagerController(MusicStoreContext context)
+        public StoreManagerController(MusicStoreContext context, RoleManager<IdentityRole> roleManager)
         {
             _context = context;
+            _roleManager = roleManager;
         }
 
         // GET: StoreManager
-       // [Authorize]
+        // [Authorize]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Index()
         {
             var musicStoreContext = _context.Album.Include(a => a.Artist).Include(a => a.Genre);
@@ -49,7 +53,7 @@ namespace MusicStore.Controllers
         }
 
         // GET: StoreManager/Create
-        [Authorize]
+        //[Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             ViewData["ArtistId"] = new SelectList(_context.Artist, "ArtistId", "ArtistId");

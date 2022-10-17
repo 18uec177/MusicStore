@@ -13,11 +13,13 @@ namespace MusicStore.Repository
 
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
-
-       public AccountRepository(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
+        private readonly RoleManager<IdentityRole> _roleManager;
+        public AccountRepository(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, RoleManager<IdentityRole> roleManager)
         {
            _userManager = userManager;
             _signInManager = signInManager;
+            _roleManager = roleManager;
+        
         }
         
         

@@ -9,7 +9,7 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
+<table id="myTable" class="table table-bordered table-hover table-striped" >
     <thead>
         <tr>
             <th>
@@ -31,29 +31,35 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AlbumArtUrl)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Genre.GenreId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Artist.ArtistId)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.AlbumId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.AlbumId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.AlbumId">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AlbumArtUrl)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Genre.GenreId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Artist.ArtistId)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.AlbumId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.AlbumId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.AlbumId">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+
+
+@section scripts{
+    <script src="~/js/dataTable.js"></script>
+}
