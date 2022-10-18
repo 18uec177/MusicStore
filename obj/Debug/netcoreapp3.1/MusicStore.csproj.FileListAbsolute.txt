@@ -171,3 +171,4 @@ E:\DotNet\ProjectPrep_MVC\Music Store MVC Practice Project\MusicStore\obj\Debug\
 E:\DotNet\ProjectPrep_MVC\Music Store MVC Practice Project\MusicStore\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LoginInfo.cshtml.g.cs
 E:\DotNet\ProjectPrep_MVC\Music Store MVC Practice Project\MusicStore\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_albumList.cshtml.g.cs
 E:\DotNet\ProjectPrep_MVC\Music Store MVC Practice Project\MusicStore\obj\Debug\netcoreapp3.1\Razor\Views\Store\Browse.cshtml.g.cs
+E:\DotNet\ProjectPrep_MVC\Music Store MVC Practice Project\MusicStore\obj\Debug\netcoreapp3.1\MusicStore.csproj.AssemblyReference.cache
