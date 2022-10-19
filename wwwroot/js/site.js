@@ -3,5 +3,5 @@
 
 // Write your JavaScript code.
 $('#myModal').on('shown.bs.modal', function () {
-    $('#myInput').trigger('focus')
+    $('#editStaticBackdrop-@Model.AlbumId').trigger('focus')
 })
