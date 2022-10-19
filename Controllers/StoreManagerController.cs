@@ -94,7 +94,8 @@ namespace MusicStore.Controllers
             }
             ViewData["ArtistId"] = new SelectList(_context.Artist, "ArtistId", "ArtistId", album.ArtistId);
             ViewData["GenreId"] = new SelectList(_context.Genre, "GenreId", "GenreId", album.GenreId);
-            return View(album);
+            //return View(album);
+            return PartialView("_EditAlbumPartialView", album);
         }
 
         // POST: StoreManager/Edit/5
@@ -131,7 +132,7 @@ namespace MusicStore.Controllers
             }
             ViewData["ArtistId"] = new SelectList(_context.Artist, "ArtistId", "ArtistId", album.ArtistId);
             ViewData["GenreId"] = new SelectList(_context.Genre, "GenreId", "GenreId", album.GenreId);
-            return View(album);
+            return PartialView("_EditAlbumPartialView",album);
         }
 
         // GET: StoreManager/Delete/5

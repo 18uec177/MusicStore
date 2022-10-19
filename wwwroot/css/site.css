@@ -8,6 +8,31 @@ a.navbar-brand {
 }
 
 /* Provide sufficient contrast against white background */
+.dataTables_length label,
+.dataTables_filter label {
+    color: #ffffff;
+}
+
+/*.pagination > li > a, .pagination > li > span {
+    background-color: white*/
+
+/*.paging_full_numbers a.paginate_button {
+    color: #fff !important;
+}
+
+.paging_full_numbers a.paginate_active {
+    color: #fff !important;
+}*/
+
+.dataTables_paginate {
+    color: #ffffff !important;
+}
+.paging_simple_numbers {
+    color: #ffffff !important;
+}
+.dataTables_info {
+    color: #ffffff !important;
+}
 
 /*Commenting out anchor and btn-primary to use the ones form bootswatch theme*/
 
@@ -67,7 +92,7 @@ body {
   margin-bottom: 60px;
 }
 .footer {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
   white-space: nowrap;

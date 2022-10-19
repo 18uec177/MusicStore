@@ -113,9 +113,9 @@
         </div>
     </div>
 
-    <footer class="border-top footer text-muted " style="position:fixed">
-        <div class="container">
-            &copy; 2022 - MusicStore - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <footer class="border-top footer bg-primary" style="height:30px;color:black;">
+        <div class="container" style="margin-top: 0px;">
+            <span style="position: relative; padding-top: 0px; margin-top: 0px; vertical-align: top">&copy; 2022 - MusicStore - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></span>
         </div>
     </footer>
 
@@ -129,6 +129,16 @@
     <script src="~/js/dataTable.js"></script>
     @*<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>*@
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>
+        $(window).scroll(function () {
+            scrollDistance = $(window).scrollTop() + $(window).height();
+            footerDistance = $('#bottom').offset().top;
+
+            if (scrollDistance >= footerDistance) {
+                console.log("Infinite scroll time!");
+            }
+        })
+    </script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>

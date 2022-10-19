@@ -233,6 +233,9 @@ table.dataTable {
    * Body styles
    */
 }
+#myTable_length{
+    color:white;
+}
 table.dataTable thead th,
 table.dataTable tfoot th {
   font-weight: bold;
