@@ -61,27 +61,258 @@
 
                     @*<a asp-action="Edit" asp-route-id="@item.AlbumId ">Edit</a> |*@
                     @*<a id="editButton" asp-action="Edit"
-                       data-toggle="modal" data-target="@("#editStaticBackdrop-"+item.AlbumId)"
-                       data-url="@Url.Action($"Edit/{item.AlbumId}")" >Edit</a> |*@
-                    <button id="editButton" type="button" class="btn btn-warning" 
-                       data-toggle="modal" data-target="@("#editAlbum-"+item.AlbumId)"
-                       data-url="@Url.Action($"Edit/{item.AlbumId}")">
+        data-toggle="modal" data-target="@("#editStaticBackdrop-"+item.AlbumId)"
+        data-url="@Url.Action($"Edit/{item.AlbumId}")" >Edit</a> |*@
+                    @*<button id="editButton" type="button" class="btn btn-warning"
+                data-toggle="modal" data-target="@("#editAlbum-"+item.AlbumId)"
+                data-url="@Url.Action($"Edit/{item.AlbumId}")">
+            Edit
+        </button>*@
 
-                        Edit
-                    </button>
-                    @await Html.PartialAsync("_EditAlbumPartialView", item)
+
+
+
+
+                    @*<partial name="_EditAlbumPartialView" model="@item" />*@
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        EDIT
+                    </button>|
+
+                    @* Edit modal *@
+
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Edit</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+
+                                    @*<p>Modal body text goes here.</p>*@
+
+                                    @*<h1>Edit</h1>*@
+
+                                    <h4>Album</h4>
+                                    <hr />
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <form asp-action="Edit">
+                                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                                <input type="hidden" asp-for="@item.AlbumId" style="margin-left:5px !important;" />
+                                                <div class="form-group">
+                                                    <label asp-for="@item.GenreId" class="control-label"></label>
+                                                    <select asp-for="@item.GenreId" class="form-control" asp-items="ViewBag.GenreId"></select>
+                                                    <span asp-validation-for="@item.GenreId" class="text-danger"></span>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label asp-for="@item.ArtistId" class="control-label"></label>
+                                                    <select asp-for="@item.ArtistId" class="form-control" asp-items="ViewBag.ArtistId"></select>
+                                                    <span asp-validation-for="@item.ArtistId" class="text-danger"></span>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label asp-for="@item.Title" class="control-label"></label>
+                                                    <input asp-for="@item.Title" class="form-control" />
+                                                    <span asp-validation-for="@item.Title" class="text-danger"></span>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label asp-for="@item.Price" class="control-label"></label>
+                                                    <input asp-for="@item.Price" class="form-control" />
+                                                    <span asp-validation-for="@item.Price" class="text-danger"></span>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label asp-for="@item.AlbumArtUrl" class="control-label"></label>
+                                                    <input asp-for="@item.AlbumArtUrl" class="form-control" />
+                                                    <span asp-validation-for="@item.AlbumArtUrl" class="text-danger"></span>
+                                                </div><br />
+                                                <div class="form-group">
+                                                    <input type="submit" value="Save" class="btn btn-primary" /> |
+                                                    <a asp-action="Index">Back to List</a>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+
+                                    @*<div>
+                            <a asp-action="Index">Back to List</a>
+                        </div>*@
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
                     @*<button class="btn btn-info"><a class="dropdown-item" asp-action="Logout" asp-controller="Account">Edit</a></button>*@
-                    <a asp-action="Details" asp-route-id="@item.AlbumId">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.AlbumId">Delete</a>
+                    @*<a asp-action="Details" asp-route-id="@item.AlbumId">Details</a> |*@
+
+                    <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModalDetails">
+                        Details
+                    </button>|
+                    @* Modal for DETAiLS *@
+                    <div class="modal fade" id="exampleModalDetails" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Details</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="container">
+                                        <h3 class="display-4"> Album Details</h3>
+                                        <div class="row">
+                                            <div class="col-4" style="margin:50px !important;">
+                                                <img src="~/images/music.jpg" />
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <h1><span style="color:white;">@item.Title</span></h1>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-12 text-primary">
+                                                        <span class="label label-pimary">By:</span>
+                                                        <span class="monospaced">@item.Artist</span>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="row">
+                                                    <div class="col-4">
+                                                        <a class="btn btn-outline-success" asp-controller="ShoppingCart" asp-action="AddToShoppingCart" asp-route-Id="@item.AlbumId">Add to Cart</a>
+
+                                                    </div>
+                                                </div>
+
+                                                <hr />
+
+                                                <ul class="list-group">
+                                                    <li class="list-group-item"><span class="font-weight-bold"> Price - </span> @item.Price</li>
+                                                    <li class="list-group-item"><span class="font-weight-bold"> Genre- </span> @item.Genre</li>
+
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    @* DELETE *@
+                    @*<a asp-action="Delete" asp-route-id="@item.AlbumId">Delete</a>*@
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModalDelete">
+                        Delete
+                    </button>|
+
+                    <a asp-action="Delete" asp-route-id="@item.AlbumId ">Delete</a> |
+
+                    <div class="modal fade" id="exampleModalDelete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Edit</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <h1>Delete</h1>
+
+                                    <h3>Are you sure you want to delete this?</h3>
+                                    <div>
+                                        <h4>Album</h4>
+                                        <hr />
+                                        <dl class="row">
+                                            <dt class="col-sm-2">
+                                                @Html.DisplayNameFor(model => item.Title)
+                                            </dt>
+                                            <dd class="col-sm-10">
+                                                @Html.DisplayFor(model => item.Title)
+                                            </dd>
+                                            <dt class="col-sm-2">
+                                                @Html.DisplayNameFor(model => item.Price)
+                                            </dt>
+                                            <dd class="col-sm-10">
+                                                @Html.DisplayFor(model => item.Price)
+                                            </dd>
+                                            <dt class="col-sm-2">
+                                                @Html.DisplayNameFor(model => item.AlbumArtUrl)
+                                            </dt>
+                                            <dd class="col-sm-10">
+                                                @Html.DisplayFor(model => item.AlbumArtUrl)
+                                            </dd>
+                                            <dt class="col-sm-2">
+                                                @Html.DisplayNameFor(model => item.Genre)
+                                            </dt>
+                                            <dd class="col-sm-10">
+                                                @Html.DisplayFor(model => item.Genre.GenreId)
+                                            </dd>
+                                            <dt class="col-sm-2">
+                                                @Html.DisplayNameFor(model => item.Artist)
+                                            </dt>
+                                            <dd class="col-sm-10">
+                                                @Html.DisplayFor(model => item.Artist.ArtistId)
+                                            </dd>
+                                        </dl>
+
+                                        <form asp-action="Delete">
+                                            <input type="hidden" asp-for="@item.AlbumId" />
+                                            <input type="submit" value="Delete" class="btn btn-warning" /> |
+                                            <a asp-action="Index">Back to List</a>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-warning">DELETE</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </td>
             </tr>
         }
     </tbody>
 </table>
 
-<partial name="__EditAlbumPartialView" />
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#testModal">
+    Launch demo modal
+</button>
 
-  @section scripts{
-  <script src="~/js/dataTable.js"></script>
- }
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section scripts{
+    <script src="~/js/dataTable.js"></script>
+}
 

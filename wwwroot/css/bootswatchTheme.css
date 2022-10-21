@@ -41,7 +41,8 @@
     --bs-gray-600: #839496;
     --bs-gray-700: #495057;
     --bs-gray-800: #073642;
-    --bs-gray-900: #002b36;
+    /*--bs-gray-900: #002b36;*/
+    --bs-gray-900: #0f2b36;
     --bs-primary: #b58900;
     --bs-secondary: #839496;
     --bs-success: #2aa198;
