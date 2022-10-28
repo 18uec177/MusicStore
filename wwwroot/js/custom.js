@@ -28,4 +28,9 @@ function ShowAlbumData() {
             alert("Data can't be obtained");
         }
     });
-}
+};
+
+
+$('#btnAddAlbum').click(function() {
+    $('#AlbumModal').modal('show');
+});

@@ -1,38 +1,23 @@
-﻿@{
-    ViewData["Title"] = "Index";
-    Layout = "/Views/Shared/_Layout.cshtml";
-}
+﻿@*@inject MusicStore.Repository.IMusicRepository _musicRepository
+@inject MusicStore.Repository.IArtistRepository _artistRepository*@
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+    Add album
+</button>
 
-<button class="btn btn-secondary m-2" id="btnAddAlbum">Create New</button>
-<partial name="_ajaxCreate" />
-
-
-<table class="table table-bordered">
-    <thead>
-        <tr class="text-center">
-            <th>Id</th>
-            <th>Title</th>
-            <th>Price</th>
-            <th>Genre</th>
-            <th>Artist</th>
-            <th>Modify</th>
-        </tr>
-    </thead>
-    <tbody class="text-center" id="table_data"></tbody>
-</table>
-
-
-@model MusicStore.Data.Album
-<div class="modal fade modal" id="AlbumModal">
-    <div class="modal-dialog">
+@model AlbumModel
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="text-info modal-title">Add Album</h1>
-                <button class="close text-danger" data-dismiss="modal">&times;</button>
+                <h5 class="modal-title" id="exampleModalLongTitle">Add new Album</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
             <div class="modal-body">
                 <div class="row">
-                    <div class="col-lg-4">
+                    <div class="col-md-4">
                         <form asp-action="Create">
                             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                             <div class="form-group">
@@ -58,28 +43,17 @@
                                 <input asp-for="AlbumArtUrl" class="form-control" />
                                 <span asp-validation-for="AlbumArtUrl" class="text-danger"></span>
                             </div><br />
-                            @*<div class="form-group">
+                            <div class="form-group">
                                 <input type="submit" value="Create" class="btn btn-primary" />
-                            </div>*@
+                            </div>
                         </form>
                     </div>
                 </div>
             </div>
-
             <div class="modal-footer">
-                <button class="btn btn-primary" id="AddAlbum">Save</button>
-                <button class="btn btn-danger btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
             </div>
         </div>
     </div>
 </div>
-
-<div>
-    <input type="hidden" id="urlAlbumData" value="@Url.Action("AlbumList","Ajax")" />
-</div>
-
-
-
-<script src="~/lib/jquery/dist/jquery.js"></script>
-<script src="~/lib/jquery/dist/jquery.min.js"></script>
-<script src="~/js/custom.js"></script>

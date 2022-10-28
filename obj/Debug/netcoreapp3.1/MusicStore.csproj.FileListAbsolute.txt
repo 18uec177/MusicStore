@@ -442,4 +442,4 @@ E:\DotNet\ProjectPrep_MVC\Music Store MVC Practice Project\MusicStore\obj\Debug\
 E:\DotNet\ProjectPrep_MVC\Music Store MVC Practice Project\MusicStore\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_album.cshtml.g.cs
 E:\DotNet\ProjectPrep_MVC\Music Store MVC Practice Project\MusicStore\bin\Debug\netcoreapp3.1\libman.json
 E:\DotNet\ProjectPrep_MVC\Music Store MVC Practice Project\MusicStore\obj\Debug\netcoreapp3.1\Razor\Views\Ajax\Index.cshtml.g.cs
-E:\DotNet\ProjectPrep_MVC\Music Store MVC Practice Project\MusicStore\obj\Debug\netcoreapp3.1\MusicStore.csproj.AssemblyReference.cache
+E:\DotNet\ProjectPrep_MVC\Music Store MVC Practice Project\MusicStore\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ajaxCreate.cshtml.g.cs
