@@ -11,8 +11,8 @@ namespace MusicStore.Repository
     public class AlbumRepository : IAlbumRepository
     {
 
-        private readonly MusicStoreContext _context = null;
-
+        //private readonly MusicStoreContext _context = null;
+        private readonly MusicStoreContext _context;
         public AlbumRepository(MusicStoreContext context)
         {
             _context = context;
@@ -86,9 +86,9 @@ namespace MusicStore.Repository
 
                 return newAlbum.AlbumId;
             }
-            public async Task<List<AlbumModel>> GetAlbums()
+            public List<Album> GetAlbums()
             {
-                return await _context.Album.Select(album => new AlbumModel()
+                return _context.Album.Select(album => new Album()
                 {
                     AlbumId = album.AlbumId,
                     Title = album.Title,
@@ -96,7 +96,7 @@ namespace MusicStore.Repository
                     AlbumArtUrl = album.AlbumArtUrl,
                     //Genre = album.Genre.Name,
                     //Artist = album.Artist.Name
-                }).ToListAsync();
+                }).ToList();
 
             }
 
@@ -115,7 +115,15 @@ namespace MusicStore.Repository
 
             }
 
-            public async Task<AlbumModel> GetAlbumsDetails(int id)
+
+        public Album Getbyid(int id)
+        {
+            return _context.Album.FirstOrDefault(x => x.Genre.GenreId == id);
+            
+
+        }
+
+        public async Task<AlbumModel> GetAlbumsDetails(int id)
             {
                 return await _context.Album.Where(x => x.AlbumId == id).Select(g => new AlbumModel()
                 {
@@ -129,7 +137,55 @@ namespace MusicStore.Repository
                 }).FirstOrDefaultAsync();
             }
 
+        public string remove(int id)
+        {
+            string Result = string.Empty;
+            var album = _context.Album.FirstOrDefault(o => o.AlbumId == id);
+            if (album!=null)
+            {
+                _context.Album.Remove(album);
+                _context.SaveChanges();
+                Result = "pass";
+            }
 
+            return Result;
+        }
+
+
+        public string Save(Album album)
+        {
+            string Result = string.Empty;
+            var newAlbum = _context.Album.FirstOrDefault(o => o.AlbumId == album.AlbumId);
+            if (newAlbum != null)
+            {
+                newAlbum.AlbumId = album.AlbumId;
+                newAlbum.Title = album.Title;
+                newAlbum.Price = album.Price;
+                newAlbum.AlbumArtUrl = album.AlbumArtUrl;
+                newAlbum.Genre.Name = album.Genre.Name;
+                newAlbum.Artist.Name = album.Artist.Name;
+
+                _context.SaveChanges();
+                Result = "pass";
+            }
+            else
+            {
+                Album createAlbum = new Album
+                {
+                    AlbumId = album.AlbumId,
+                    Title = album.Title,
+                    Price = album.Price,
+                    AlbumArtUrl = album.AlbumArtUrl,
+                    Genre = album.Genre,
+                    Artist= album.Artist
+                };
+                _context.Album.Add(createAlbum);
+                _context.SaveChanges();
+                Result = "pass";
+            }
+            
+            return Result;
+        }
 
     }
 }

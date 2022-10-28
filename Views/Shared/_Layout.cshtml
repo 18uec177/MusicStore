@@ -44,7 +44,13 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy" style="border-right: 1px solid; border-color: darkgrey;">Admin</a>
                         </li>
+
+
                         <partial name="_LoginInfo" />
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Store" asp-action="Index" style="border-right: 1px solid; border-color: darkgrey;">New Store</a>
+                        </li>
                         @*@await Html.PartialAsync("_LoginPartial")*@
                     </ul>
                 </div>

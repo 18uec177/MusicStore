@@ -10,13 +10,14 @@ namespace MusicStore.Repository
     public interface IAlbumRepository
     {
 
-        Task<List<AlbumModel>> GetAlbums();
+        List<Album> GetAlbums();   //Task <List<AlbumModel>> GetAlbums();
         Task<List<AlbumModel>> GetAlbumsById(int id);
         Task<AlbumModel> GetAlbumsDetails(int id);
 
         Task<int> AddNewAlbum(Album albumModel);
         IEnumerable<Album> Albums { get; }
-
+        public string remove(int id);
+        public string Save(Album album);
 
 
         //Task<int> AddNewAlbum(AlbumModel model);

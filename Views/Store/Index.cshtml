@@ -1,18 +1,26 @@
-﻿@model IEnumerable<MusicStore.Models.GenreModel>
-@{ViewBag.Title = "Store";}
+﻿<div class="row">
+    <div class="col-lg-12">
+        <a href="#" class="btn btn-primary">Create New</a>
+        <partial name="_album" />
+    </div>
 
-<body style="overflow-y:auto;">
-    <h3>Browse Genres</h3>
-    <p> Select from @Model.Count() genres:</p>
+    <div class="col-lg-12">
+        <br/>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Price</th>
+                    <th>AlbumArtUrl</th>
+                    <th>Gemre</th>
+                    <th>Artist</th>
+                </tr>
+            </thead>
+        </table>
 
-    <ul>
+    </div>
+</div>
 
-        @foreach (var genre in Model)
-        {
 
-<a href="/Store/Browse/@genre.GenreId" class="card-body card-title  text-success text-decoration-none">@genre.Name</a>
-<br />
-}
-    </ul>
 
-</body>
+

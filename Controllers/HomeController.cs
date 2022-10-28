@@ -31,10 +31,12 @@ namespace MusicStore.Controllers
         }
 
 
-       
-        public async Task<ViewResult> Index()
+
+      //  public async Task<ViewResult> Index()
+        public ViewResult Index()
         {
-            var data = await _albumRepository.GetAlbums();
+            //var data = await  _albumRepository.GetAlbums();
+            var data =  _albumRepository.GetAlbums();
             return View(data);
         }
 

@@ -50,6 +50,8 @@ namespace MusicStore
                 options =>
         options.UseSqlServer(Configuration.GetConnectionString("DBConnection")));
 
+
+            services.AddControllersWithViews().AddRazorRuntimeCompilation();
             services.AddMvc();
             services.AddMemoryCache();
             services.AddSession();
@@ -132,7 +134,7 @@ namespace MusicStore
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Ajax}/{action=Index}/{id?}");
             });
         }
     }

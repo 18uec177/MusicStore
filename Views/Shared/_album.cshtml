@@ -1,0 +1,85 @@
+﻿<!-- Button trigger modal -->
+<button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+   Create New
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Add/Edit</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <label>Id</label>
+                    </div>
+                    <div class="col-lg-9">
+                        <div class="form-group">
+                            <input id="txtcode" class="form-control" />
+                        </div>
+                    </div>
+                    <br />
+                    <div class="col-lg-3">
+                        <label>Title</label>
+                    </div>
+                    <div class="col-lg-9">
+                        <div class="form-group">
+                            <input id="txtcode" class="form-control" />
+                        </div>
+                    </div>
+                    <br />
+                    <div class="col-lg-3">
+                        <label>Price</label>
+                    </div>
+                    <div class="col-lg-9">
+                        <div class="form-group">
+                            <input id="txtcode" class="form-control" />
+                        </div>
+                    </div>
+                    <br />
+                    <div class="col-lg-3">
+                        <label>AlbumArtUrl</label>
+                    </div>
+                    <div class="col-lg-9">
+                        <div class="form-group">
+                            <input id="txtcode" class="form-control" />
+                        </div>
+                    </div>
+                    <br />
+
+
+                    <div class="col-lg-3">
+                        <label>Genre</label>
+                    </div>
+                    <div class="col-lg-9">
+                        <div class="form-group">
+                            <input id="txtcode" class="form-control" />
+                        </div>
+                    </div>
+                    <br />
+                    <div class="col-lg-3">
+                        <label>Artist</label>
+                    </div>
+                    <div class="col-lg-9">
+                        <div class="form-group">
+                            <input id="txtcode" class="form-control" />
+                        </div>
+                    </div>
+                    <br />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" /> |
+                    <a asp-action="Index">Back to List</a>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</div>

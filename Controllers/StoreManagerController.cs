@@ -24,9 +24,9 @@ namespace MusicStore.Controllers
 
         // GET: StoreManager
         // [Authorize]
-        [Authorize(Roles = "Admin")]
+       // [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Index()
-        {
+        { 
             var musicStoreContext = _context.Album.Include(a => a.Artist).Include(a => a.Genre);
             return View(await musicStoreContext.ToListAsync());
         }
@@ -35,7 +35,8 @@ namespace MusicStore.Controllers
         
         public async Task<IActionResult> Details(int? id)
         {
-            var musicStoreContext = _context.Album.Include(a => a.Artist).Include(a => a.Genre); 
+            var musicStoreContext = _context.Album.Include(a => a.Artist).Include(a => a.Genre);
+            ViewBag.musicStoreContext = _context.Album.Include(a => a.Artist).Include(a => a.Genre);
             if (id == null)
             {
                 return NotFound();
