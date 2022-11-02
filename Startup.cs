@@ -45,6 +45,7 @@ namespace MusicStore
             services.AddScoped<IGenreRepository, GenreRepository>();
             services.AddScoped<IAccountRepository, AccountRepository>();
             services.AddScoped<IOrderRepository, OrderRepository>();
+            services.AddScoped<IArtistRepository, ArtistRepository>();
 
             services.AddDbContext<MusicStoreContext>(
                 options =>

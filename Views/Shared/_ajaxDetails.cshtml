@@ -1,0 +1,62 @@
+﻿@inject MusicStore.Repository.IGenreRepository _musicRepository
+@inject MusicStore.Repository.IArtistRepository _artistRepository
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalDetails" id="btnAddNewAlbum">
+    Edit
+</button>
+
+@model MusicStore.Data.Album
+<!-- Modal -->
+<div class="modal fade" id="exampleModalDetails" tabindex="-1" role="dialog" aria-labelledby="exampleModalDetailsTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalTitle">Add new Album</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h4>Album</h4>
+                <hr />
+                <dl class="row">
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Title)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Title)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Price)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Price)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.AlbumArtUrl)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.AlbumArtUrl)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Genre)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Genre.GenreId)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Artist)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Artist.ArtistId)
+                    </dd>
+                </dl>
+            </div>
+            <div class="modal-footer">
+                <a asp-controller="ShoppingCart" asp-action="AddToShoppingCart" asp-route-id="@Model.AlbumId">Buy</a> ||
+                <a asp-action="Index">Back to List</a> ||
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>

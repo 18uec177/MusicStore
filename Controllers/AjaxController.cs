@@ -28,7 +28,45 @@ namespace MusicStore.Controllers
         }
 
 
+        [HttpPost]
+        public JsonResult AddAlbum(Album album)
+        {
+            var alb = new Album()
+            {
+                AlbumId = album.AlbumId,
+                Title = album.Title,
+                AlbumArtUrl = album.AlbumArtUrl,
+                Price = album.Price,
+                GenreId = album.GenreId,
+                ArtistId = album.ArtistId,
+            };
+            context.Album.Add(alb);
+            context.SaveChanges();
+            return new JsonResult("Data is saved");
+        }
 
+        public JsonResult Delete(int id)
+        {
+            var data = context.Album.Where(e => e.AlbumId == id).SingleOrDefault();
+            context.Album.Remove(data);
+            context.SaveChanges();
+            return new JsonResult("Data Deleted");
+        }
+
+        public JsonResult Edit(int id)
+        {
+            var data = context.Album.Where(e => e.AlbumId == id).SingleOrDefault();
+            return new JsonResult(data);
+        }
+
+        [HttpPost]
+        public JsonResult Update(Album album)
+        {
+            context.Album.Update(album);
+            context.SaveChanges();
+            return new JsonResult("Record Updated");
+        }
 
     }
+   
 }

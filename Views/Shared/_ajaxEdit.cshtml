@@ -6,7 +6,7 @@
 
 @model AlbumModel
 <!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -73,10 +73,10 @@
                     <input asp-for="Price" class="form-control" id="Price" />
                 </div>
                 <div class="form-group">
-                    <input type="submit" value="Add Album" class="btn btn-primary" />
+                   <button class="btn btn-primary" onclick="" style="display:none" id="btnUpdate">Update</button>
                 </div>
 
-                
+
             </form>
             </div>
             <div class="modal-footer">
