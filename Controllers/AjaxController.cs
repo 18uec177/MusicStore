@@ -24,6 +24,7 @@ namespace MusicStore.Controllers
         public JsonResult AlbumList()
         {
             var data = context.Album.ToList();
+            data = data.OrderByDescending(x => x.Timestamp).ToList();
             return new JsonResult(data);
         }
 
@@ -39,6 +40,7 @@ namespace MusicStore.Controllers
                 Price = album.Price,
                 GenreId = album.GenreId,
                 ArtistId = album.ArtistId,
+                Timestamp = album.Timestamp
             };
             context.Album.Add(alb);
             context.SaveChanges();
@@ -60,7 +62,7 @@ namespace MusicStore.Controllers
         }
 
         [HttpPost]
-        public JsonResult Update(Album album)
+        public JsonResult Update(int id,Album album)
         {
             context.Album.Update(album);
             context.SaveChanges();

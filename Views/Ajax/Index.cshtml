@@ -2,10 +2,10 @@
 @inject MusicStore.Repository.IArtistRepository _artistRepository
 
 
-<partial name="_ajaxCreate" />
+<partial name="_ajaxCreate" /><br />
 
 
-<table class="table table-bordered">
+<table class="table table-bordered table-striped" id="myTable">
     <thead>
         <tr class="text-center">
             <th>Id</th>
@@ -14,6 +14,7 @@
             <th>Genre</th>
             <th>Artist</th>
             <th>Modify</th>
+            @*<th>Timestamp</th>*@
         </tr>
     </thead>
     <tbody class="text-center" id="table_data"></tbody>
@@ -124,7 +125,7 @@
 
             <div class="modal-footer">
                 <button class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button class="btn btn-primary" onclick="UpdateAlbum();" id="btnUpdate">Edit</button>
+                <button class="btn btn-primary" onclick="UpdateAlbum();" id="btnUpdate">Save</button>
             </div>
 
         </div>

@@ -15,5 +15,6 @@ namespace MusicStore.Data
         public string AlbumArtUrl { get; set; }
         public Genre Genre { get; set; }
         public Artist Artist { get; set; }
+        public DateTime Timestamp { get; set; } = DateTime.Now;
     }
 }

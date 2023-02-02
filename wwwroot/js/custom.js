@@ -1,5 +1,7 @@
 ﻿$(document).ready(function () {
+    
     ShowAlbumData();
+   
 });
 
 function ShowAlbumData() {
@@ -19,10 +21,17 @@ function ShowAlbumData() {
                 object += '<td>' + item.price + '</td>';
                 object += '<td>' + item.genreId + '</td>';
                 object += '<td>' + item.artistId + '</td>';
-                object += '<td><a href="#"  onclick="Edit(' + item.albumId + ')" class="btn btn-primary">Edit</a> | <a href ="#" onClick="Delete(' + item.albumId + ')"class= "btn btn-warning">Delete<a/></td>';
+
+                object += '<td><a href="#"  onclick="Edit(' + item.albumId + ')" class="btn btn-success">Edit</a> | <a href ="#" onClick="Delete(' + item.albumId + ')"class= "btn btn-danger">Delete<a/></td>';
+                /*object += '<td>' + item.timestamp + '</td>';*/
                 object += '</tr>';
+                
+                /*object = object.sort((a, b) => a[item.Timestamp] < b[item.Timestamp]) ? 1 : -1);*/
             });
+            
             $('#table_data').html(object);
+            
+            
         },
         error: function () {
             alert("Data can't be obtained");
@@ -37,7 +46,8 @@ $('#btnAddNewAlbum').click(function() {
 
 function AddAlbum() {debugger
     var objData = {
-        AlbumId: $('#AlbumId').val(),
+        /*AlbumId: $('#AlbumId').val(),*/
+        AlbumId: $('#albumid').val(),
         GenreId : $('#GenreId').val(),
         ArtistId : $('#ArtistId').val(),
         Title : $('#Title').val(),
@@ -50,8 +60,14 @@ function AddAlbum() {debugger
         data: objData,
         contentType: 'application/json; charset=utf-8',
         dataType: 'json',
-        success: function () {
+        success: function (objData) {
+           
+            
+            $('#exampleModalCenter').modal('hide');
             alert('Data saved');
+            
+            /*$('#myTable').prepend($('<tr> < td > ' + objData.albumId + '</td >' + '< td > ' + objData.Title + '</td >' + '< td > ' + objData.Price + '</td >' + '< td > ' + objData.GenreId + '</td >' + '< td > ' + objData.ArtistId + '</td ></tr>'));*/
+            
         },
         error: function () {
             alert('Data can not be saved');
@@ -107,9 +123,9 @@ function Edit(id) {
 }
 function UpdateAlbum() {
     debugger;
-    alert("Working");
-    var objData = {
-        AlbumId: $('#exampleModalEdit #AlbumId').val(),
+    
+    var objDatum = {
+        AlbumId: $('#exampleModalEdit #Id').val(),
 
         Title: $('#exampleModalEdit #Title').val(),
         Price: $('#exampleModalEdit #Price').val(),
@@ -121,11 +137,13 @@ function UpdateAlbum() {
     $.ajax({
         url: '/Ajax/Update',
         type: 'POST',
-        data: objData,
+        data: objDatum,
         contentType: 'application/x-www-form-urlencoded;charset=utf-8;',
         dataType: 'json',
         success: function () {
-            alert("Data Saved");
+            
+            $('#exampleModalEdit').modal('hide');
+            alert("Success:Data Saved!");
             ShowAlbumData();
 
         },

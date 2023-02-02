@@ -1,8 +1,11 @@
 ﻿@inject MusicStore.Repository.IGenreRepository _musicRepository
 @inject MusicStore.Repository.IArtistRepository _artistRepository
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" id="btnAddNewAlbum">
+
+
+<br />
+<button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModalCenter" id="btnAddNewAlbum">
     Add album
-</button>
+</button><br />
 
 @model AlbumModel
 <!-- Modal -->
@@ -27,6 +30,7 @@
     </div>}
             <form method="post" enctype="multipart/form-data"
                   asp-action="Create" asp-controller="StoreManager">
+            
 
                 <div class="form-group">
                     <label asp-for="AlbumId" class="control-label">Id</label>
@@ -76,7 +80,7 @@
                     <input type="submit" value="Add Album" class="btn btn-primary" />
                 </div>
 
-                
+
             </form>
             </div>
             <div class="modal-footer">

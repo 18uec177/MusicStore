@@ -99,7 +99,7 @@ namespace MusicStore.Controllers
             ViewData["GenreId"] = new SelectList(_context.Genre, "GenreId", "GenreId", album.GenreId);
             //return View(album);
             //return PartialView("_EditAlbumPartialView", album);
-            return View("Index");
+            return View("Index", "Ajax");
         }
 
         // POST: StoreManager/Edit/5
@@ -132,7 +132,7 @@ namespace MusicStore.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index","Ajax");
             }
             ViewData["ArtistId"] = new SelectList(_context.Artist, "ArtistId", "ArtistId", album.ArtistId);
             ViewData["GenreId"] = new SelectList(_context.Genre, "GenreId", "GenreId", album.GenreId);
